@@ -1,1 +1,1 @@
-const sum = numbers => numbers.reduce((a, b) => a + b, 0)
+const accum = s => s.toLowerCase().split('').map((el, index) => el.repeat(index+1)).map(el => el[0].toUpperCase() + el.slice(1)).join('-')
