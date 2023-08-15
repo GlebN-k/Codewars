@@ -1,1 +1,1 @@
-const cockroachSpeed = s => Math.floor(s / 0.036)
+const sum = numbers => numbers.reduce((a, b) => a + b, 0)
