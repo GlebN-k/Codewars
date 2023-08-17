@@ -12,3 +12,4 @@ const persistentBugger = num => {
 
     return i
 }
+log
