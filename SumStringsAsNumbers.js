@@ -22,7 +22,6 @@ const sumStrings = (a, b) => {
     return result;
 };
 
-console.log(sumStrings('00103', '08567')); // Output: '08670'
 
 
 //
