@@ -1,30 +1,19 @@
 const permutations = string => {
-    let result = [string]
-    for (let i = 0; i < string.length; i++) {
+    let result = [];
 
-        for(let j=0; i < string.length; j++) {
-
+    const generatePermutations = (current, remaining) => {
+        if (remaining.length === 0) {
+            result.push(current);
+        } else {
+            for (let i = 0; i < remaining.length; i++) {
+                const newCurrent = current + remaining[i];
+                const newRemaining = remaining.slice(0, i) + remaining.slice(i + 1);
+                generatePermutations(newCurrent, newRemaining);
+            }
         }
+    };
 
+    generatePermutations('', string);
 
-        if (i === 0) {
-            result.push(string.slice(i, i + 1) + string.slice(i + 1, string.length - 1))
-        } else { // i !== 0
-            result.push(string.slice(0, i) + string.slice(i, i + 1) + string.slice(i + 1, string.length - 1))
-        }
-
-        // if (i !== 0) {
-        //     result.push(`${string.slice(0, i)}${string.slice(1)}`)
-        // }
-        //
-        //
-        // string.slice(1)
-        // result.push(`${string.slice(0, 1)}${string.slice(1)}`)
-    }
-
-    return result
-}
-
-// With input 'abcde':
-// Your function should return ['abc','acb','bac','bca','cab','cba']
-// Your function should return ['abcde','abced','abdce','abdec','abedc', 'abecd', 'adcbe','cba']
+    return [...new Set(result)]
+};
