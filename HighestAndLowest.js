@@ -1,6 +1,4 @@
 function highAndLow(numbers){
-
-    const lowestNumber = Math.min(...numbers.split(' ').map(el => Number(el)))
-    const highestNumber = Math.max(...numbers.split(' ').map(el => Number(el)))
-    return `${highestNumber} ${lowestNumber}`
+    const arrayOfNumbers = numbers.split(' ')
+    return `${Math.max(...arrayOfNumbers)} ${Math.min(...arrayOfNumbers)}`
 }
