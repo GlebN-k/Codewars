@@ -1,14 +1,20 @@
-function incrementString(strng) {
-    let number = []
-    let x = [...strng].reverse()
-
-    for (let i = 0; i <= x.length-1; i++) {
-        if(!isNaN(+x[i])) {
-            number.unshift(+x[i])
-        } else break
+function incrementString(str) {
+    let index = str.length - 1;
+    while (index >= 0 && !isNaN(parseInt(str.charAt(index)))) {
+        index--;
     }
 
-    let finalNumber = +number.join('') + 1
+    if (index === str.length - 1) {
+        return str + '1';
+    }
 
-    return number
+    const base = str.slice(0, index + 1);
+    const numStr = str.slice(index + 1);
+    const number = parseInt(numStr);
+
+    const incrementedNumber = (number + 1).toString();
+    const leadingZeros = Math.max(0, numStr.length - incrementedNumber.length); // Изменено на Math.max
+    const newNumber = '0'.repeat(leadingZeros) + incrementedNumber;
+
+    return base + newNumber;
 }
