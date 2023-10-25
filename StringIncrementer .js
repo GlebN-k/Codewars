@@ -13,7 +13,7 @@ function incrementString(str) {
     const number = parseInt(numStr);
 
     const incrementedNumber = (number + 1).toString();
-    const leadingZeros = Math.max(0, numStr.length - incrementedNumber.length); // Изменено на Math.max
+    const leadingZeros = Math.max(0, numStr.length - incrementedNumber.length); 
     const newNumber = '0'.repeat(leadingZeros) + incrementedNumber;
 
     return base + newNumber;
