@@ -1,8 +1,6 @@
 function scramble(str1, str2) {
-    let obj1 = {}
-    let obj2 = {}
-    str1.split("").forEach(el => obj1[el] ? obj1[el]++ : obj1[el] = 1)
-    str2.split("").forEach(el => obj2[el] ? obj2[el]++ : obj2[el] = 1)
+    let obj1 = str1.split('').reduce((a,b) => {a[b] ? a[b]++ : a[b]=1; return a}, {})
+    let obj2 = str2.split('').reduce((a,b) => {a[b] ? a[b]++ : a[b]=1; return a}, {})
 
     for (let key of Object.keys(obj2)) {
         if (!(key in obj1)) {
